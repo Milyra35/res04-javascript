@@ -5,30 +5,24 @@ let number = 34;
 
 if (choice > number || choice < number) {
     while (choice !== number) {
-        choice=window.prompt("Nouvel essai:");
+        
         if (choice > number) {
             window.alert("C'est moins !");
+            choice=window.prompt("Nouvel essai:");
         }
         else if (choice < number) {
             window.alert("C'est plus !");
+            choice=window.prompt("Nouvel essai:");
         }
         else {
             window.alert("C'est gagné !");
+            break;
         }
     }
+}
+else {
+    window.alert("C'est gagné !");
 }
 
 
 
-
-/*while (choice !== number) {
-    if (choice > 34) {
-        window.alert("C'est moins !");
-    }
-    else if (choice < 34) {
-        window.alert("C'est plus !");
-    }
-    else {
-        window.alert("C'est gagné !");
-    }
-}*/
