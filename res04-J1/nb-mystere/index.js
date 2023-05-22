@@ -1,4 +1,4 @@
-let choice = window.prompt("Choisissez un nombre entre 0 et 100");
+let choice = Math.floor(window.prompt("Choisissez un nombre entre 0 et 100"));
 let number = 34;
 
 

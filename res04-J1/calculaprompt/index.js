@@ -6,7 +6,7 @@ let result;
 console.log(number1 + operator + number2);
 
 if (isNaN(number1) || isNaN(number2)) {
-    window.alert("J'ai demandé un nombre");
+    window.alert("Merci de vérifier les données");
 }
 
 
