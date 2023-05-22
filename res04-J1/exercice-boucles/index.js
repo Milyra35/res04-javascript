@@ -20,7 +20,7 @@ while (y<21) {
 
 /**** EXERCICE 2 ****/
 let a = 0;
-while (a<11) {
+while (a <= 10) {
     console.log(a);
     a = a + 1;
     
@@ -31,3 +31,25 @@ while (a<11) {
         console.log("Impair");
     }
 }
+
+
+/**** EXERCICE 3 ****/
+let b = 0;
+while (b <= 100) {
+    
+    if (b < 50 && b%2 === 0) {
+        console.log(b + "Pair");
+        b = b + 2;
+    }
+    else {
+        console.log(b);
+        b = b + 3;
+        
+        if (b>=50 && b%2 === 0) {
+            console.log("Pair");
+        }
+        else {
+            console.log("Impair");
+        }
+    }
+}    
