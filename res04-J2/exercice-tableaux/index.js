@@ -44,3 +44,15 @@ for (let i=0; i<grades.length; i++) {
     average = (grades[i][0] + grades[i][1]) / 2;
     console.log(average);
 }
+
+let totalAverage; 
+for (let i=0; i<grades.length; i++) {
+    totalAverage = (grades[0][i] + grades[0][i] + grades[1][i] + grades[1][i] + grades[2][i] + grades[2][i]) / 6;
+    console.log(totalAverage);
+}
+
+
+// for (let i=0; i<grades.length; i++) {
+//     average = (grades[i][0] + grades[i][1] + grades[i][2]) / 3;
+// }
+// console.log(average);
