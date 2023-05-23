@@ -161,12 +161,181 @@ let users = [
     }
 ];
 
+// ETAPE 1
 function countActiveUsers(users) {
     let totalUsers = 0;
     for (user of users) {
-        totalUsers = totalUsers + users.length;
+        if (user.isActive === true) {
+            totalUsers++;
+        }
     }
-    console.log(totalUsers);
+    return totalUsers;
 }
 
 console.log(`We currently have ${ countActiveUsers(users) } active users.`);
+
+
+// ETAPE 2
+function getActiveUsers(users) {
+    let table = [];
+    for (user of users) {
+        if (user.isActive === true) {
+            table.push(user);
+        }
+    }
+    return table;
+}
+
+function hasBlueEyes(activeUsers) {
+    let totalBlueEyes = 0;
+    for (user of activeUsers) {
+        if (user.eyeColor === "blue") {
+            totalBlueEyes++;
+        }
+    }
+    return totalBlueEyes;
+}
+
+let activeUsers = getActiveUsers(users);
+
+console.log(`Out of our currently ${countActiveUsers(users)} active users, ${hasBlueEyes(activeUsers)} have blue eyes.`);
+
+
+// ETAPE 3
+function getActiveUsersAges(users) {
+    let ageList = [];
+    for (user of activeUsers) {
+        ageList.push(user.age);
+    }
+    return ageList;
+}
+
+function computeActiveUsersAverageAge(ages) {
+    let average = 0;
+    let sum = 0;
+    for (age of ages) {
+        sum = sum + age;
+    }
+    average = sum / ages.length;
+    
+    return average;
+}
+let ages = getActiveUsersAges(users);
+
+console.log(`Out of our currently ${countActiveUsers(users)} active users, the average age is ${computeActiveUsersAverageAge(ages)}.`);
+
+
+
+// ETAPE 4
+function getMultronUsers(users) {
+    let multronUsers = 0;
+    for (user of users) {
+        if (user.company === "MULTRON") {
+            multronUsers++;
+        }
+    }
+    return multronUsers;
+}
+
+function setMultronToCenturia(users) {
+    for (user of users) {
+        if (user.company === "MULTRON") {
+            user.company = "CENTURIA";
+        }
+    }
+}
+
+console.log(`${getMultronUsers(users)} user companies have been changed from MULTRON to CENTURIA.`);
+
+
+
+// ETAPE 5
+function getBrownEyedUsers(users) {
+    let brownEyedUsers = [];
+    for (user of users) {
+        if (user.eyeColor === "brown") {
+            brownEyedUsers.push(user);
+        }
+    }
+    return brownEyedUsers;
+}
+
+function excludeCenturiaWorkers(usersBrownEyed) {
+    let brownEyed = 0;
+    for (user of usersBrownEyed) {
+        if (user.company !== "CENTURIA") {
+            brownEyed++;
+        }
+    }
+    return brownEyed;
+}
+let usersBrownEyed = getBrownEyedUsers(users);
+
+console.log(`${excludeCenturiaWorkers(usersBrownEyed)} users with brown eyes do not work at CENTURIA`);
+
+
+// ETAPE 6
+
+function brownEyedUsersActive(usersBrownEyed) {
+    let activeUsersBrownEyes = 0;
+    for (user of usersBrownEyed) {
+        if (user.isActive === true) {
+            activeUsersBrownEyes++;
+        }
+    }
+    return activeUsersBrownEyes;
+}
+function brownEyedUsersInactive(usersBrownEyed) {
+    let inactiveUsersBrownEyes = 0;
+    for (user of usersBrownEyed) {
+        if (user.isActive === false) {
+            inactiveUsersBrownEyes++;
+        }
+    }
+    return inactiveUsersBrownEyes;
+}
+
+console.log(`Out of our brown eyed users ${brownEyedUsersActive(usersBrownEyed)} are active and ${brownEyedUsersInactive(usersBrownEyed)} are inactive`);
+
+
+function getblueEyedUsers(users) {
+    let blueEyedUsers = [];
+    for (user of users) {
+        if (user.eyeColor === "blue") {
+            blueEyedUsers.push(user);
+        }
+    }
+    return blueEyedUsers;
+}
+
+function blueEyedUsersInactive(blueEyedUsers) {
+    let inactiveUserBlueEyes = 0;
+    for (user of blueEyedUsers) {
+        if (user.isActive === false) {
+            inactiveUserBlueEyes++;
+        }
+    }
+    return inactiveUserBlueEyes;
+}
+let blueEyedUsers = getblueEyedUsers(users);
+
+console.log(`Out of our blue eyed users ${hasBlueEyes(activeUsers)} are active and ${blueEyedUsersInactive(blueEyedUsers)} are inactive`);
+
+function getGreenEyedUsers(users) {
+    let greenEyedUsers = [];
+    for (user of users) {
+        if (user.eyeColor === "green") {
+            greenEyedUsers.push(user);
+        }
+    }
+    return greenEyedUsers;
+}
+
+function greenEyedUsersActive(getGreenEyedUsers) {
+    
+}
+
+
+let greenEyedUsers = getGreenEyedUsers(users);
+// console.log(`Out of our green eyed users ${} are active and ${} are inactive`);
+

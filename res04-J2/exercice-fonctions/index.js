@@ -91,3 +91,82 @@ function calculator(operator, nb1, nb2) {
 
 calculator();
 
+
+
+
+// CORRECTION
+// Correction exercices fonctions
+// function add(nb1, nb2)
+// {
+//     return nb1 + nb2;
+// }
+
+// function sub(nb1, nb2)
+// {
+//     return nb1 - nb2;
+// }
+
+// function mult(nb1, nb2)
+// {
+//     return nb1 ** nb2;
+// }
+
+// function div(nb1, nb2)
+// {
+//     return nb1 / nb2;
+// }
+
+// function mod(nb1, nb2)
+// {
+//     return nb1 % nb2;
+// }
+
+// function askUserOperation()
+// {
+//     return window.prompt("Entrez un opérateur");
+// }
+
+// function askUserFirstNumber()
+// {
+//     return window.prompt("Entrez un nombre");
+// }
+
+// function askUserSecondNumber()
+// {
+//     return window.prompt("Entrez un autre nombre");
+// }
+
+// function dispatchOperation(nb1, ope, nb2)  
+// {
+//     if(ope === "+")
+//   {
+//       console.log(`${nb1} ${ope} ${nb2} = ${add(nb1, nb2)}`);
+//   }
+//   else if(ope === "-")
+//   {
+//       console.log(`${nb1} ${ope} ${nb2} = ${sub(nb1, nb2)}`);
+//   }
+//   else if(ope === "*")
+//   {
+//       console.log(`${nb1} ${ope} ${nb2} = ${mult(nb1, nb2)}`);
+//   }
+//   else if(ope === "/")
+//   {
+//       console.log(`${nb1} ${ope} ${nb2} = ${div(nb1, nb2)}`);
+//   }
+//   else if(ope === "%")
+//   {
+//       console.log(`${nb1} ${ope} ${nb2} = ${mod(nb1, nb2)}`);
+//   }
+// }
+
+// function calculator()
+// {
+//     let nb1 = askUserFirstNumber();
+//   let ope = askUserOperation();
+//   let nb2 = askUserSecondNumber();
+  
+//   dispatchOperation(parseInt(nb1), ope, parseInt(nb2));
+// }
+
+// calculator();
