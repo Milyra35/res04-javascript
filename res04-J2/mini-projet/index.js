@@ -276,66 +276,103 @@ console.log(`${excludeCenturiaWorkers(usersBrownEyed)} users with brown eyes do 
 
 // ETAPE 6
 
-function brownEyedUsersActive(usersBrownEyed) {
-    let activeUsersBrownEyes = 0;
-    for (user of usersBrownEyed) {
-        if (user.isActive === true) {
-            activeUsersBrownEyes++;
-        }
-    }
-    return activeUsersBrownEyes;
-}
-function brownEyedUsersInactive(usersBrownEyed) {
-    let inactiveUsersBrownEyes = 0;
-    for (user of usersBrownEyed) {
-        if (user.isActive === false) {
-            inactiveUsersBrownEyes++;
-        }
-    }
-    return inactiveUsersBrownEyes;
-}
-
-console.log(`Out of our brown eyed users ${brownEyedUsersActive(usersBrownEyed)} are active and ${brownEyedUsersInactive(usersBrownEyed)} are inactive`);
-
-
-function getblueEyedUsers(users) {
-    let blueEyedUsers = [];
+function getEyeColorUsers(users, eyeColor, isActive) {
+    let eyeColorUsers = [];
     for (user of users) {
-        if (user.eyeColor === "blue") {
-            blueEyedUsers.push(user);
+        if (user.eyeColor === eyeColor) {
+            eyeColorUsers.push(user);
         }
     }
-    return blueEyedUsers;
-}
-
-function blueEyedUsersInactive(blueEyedUsers) {
-    let inactiveUserBlueEyes = 0;
-    for (user of blueEyedUsers) {
-        if (user.isActive === false) {
-            inactiveUserBlueEyes++;
-        }
-    }
-    return inactiveUserBlueEyes;
-}
-let blueEyedUsers = getblueEyedUsers(users);
-
-console.log(`Out of our blue eyed users ${hasBlueEyes(activeUsers)} are active and ${blueEyedUsersInactive(blueEyedUsers)} are inactive`);
-
-function getGreenEyedUsers(users) {
-    let greenEyedUsers = [];
-    for (user of users) {
-        if (user.eyeColor === "green") {
-            greenEyedUsers.push(user);
-        }
-    }
-    return greenEyedUsers;
-}
-
-function greenEyedUsersActive(getGreenEyedUsers) {
     
+    let activeUsers = 0;
+    for (user of eyeColorUsers) {
+        if (user.isActive === isActive) {
+            activeUsers++;
+        }
+    }
+    return activeUsers;
 }
 
+console.log(`Out of our brown eyed users ${getEyeColorUsers(users, "brown", true)} are active and ${getEyeColorUsers(users, "brown", false)} are inactive`);
 
-let greenEyedUsers = getGreenEyedUsers(users);
-// console.log(`Out of our green eyed users ${} are active and ${} are inactive`);
+console.log(`Out of our green eyed users ${getEyeColorUsers(users, "blue", true)} are active and ${getEyeColorUsers(users, "blue", false)} are inactive`);
+
+console.log(`Out of our blue eyed users ${getEyeColorUsers(users, "green", true)} are active and ${getEyeColorUsers(users, "green", false)} are inactive`);
+
+// function brownEyedUsersActive(usersBrownEyed) {
+//     let activeUsersBrownEyes = 0;
+//     for (user of usersBrownEyed) {
+//         if (user.isActive === true) {
+//             activeUsersBrownEyes++;
+//         }
+//     }
+//     return activeUsersBrownEyes;
+// }
+// function brownEyedUsersInactive(usersBrownEyed) {
+//     let inactiveUsersBrownEyes = 0;
+//     for (user of usersBrownEyed) {
+//         if (user.isActive === false) {
+//             inactiveUsersBrownEyes++;
+//         }
+//     }
+//     return inactiveUsersBrownEyes;
+// }
+
+// console.log(`Out of our brown eyed users ${brownEyedUsersActive(usersBrownEyed)} are active and ${brownEyedUsersInactive(usersBrownEyed)} are inactive`);
+
+
+// function getblueEyedUsers(users) {
+//     let blueEyedUsers = [];
+//     for (user of users) {
+//         if (user.eyeColor === "blue") {
+//             blueEyedUsers.push(user);
+//         }
+//     }
+//     return blueEyedUsers;
+// }
+
+// function blueEyedUsersInactive(blueEyedUsers) {
+//     let inactiveUserBlueEyes = 0;
+//     for (user of blueEyedUsers) {
+//         if (user.isActive === false) {
+//             inactiveUserBlueEyes++;
+//         }
+//     }
+//     return inactiveUserBlueEyes;
+// }
+// let blueEyedUsers = getblueEyedUsers(users);
+
+// console.log(`Out of our blue eyed users ${hasBlueEyes(activeUsers)} are active and ${blueEyedUsersInactive(blueEyedUsers)} are inactive`);
+
+// function getGreenEyedUsers(users) {
+//     let greenEyedUsers = [];
+//     for (user of users) {
+//         if (user.eyeColor === "green") {
+//             greenEyedUsers.push(user);
+//         }
+//     }
+//     return greenEyedUsers;
+// }
+
+// function greenEyedUsersActive(greenEyedUsers) {
+//     let activeUsers = 0;
+//     for (user of greenEyedUsers) {
+//         if (user.isActive === true) {
+//             activeUsers++;
+//         }
+//     }
+//     return activeUsers;
+// }
+// function greenEyedUsersInactive(greenEyedUsers) {
+//     let inactiveUsers = 0;
+//     for (user of greenEyedUsers) {
+//         if (user.isActive === false) {
+//             inactiveUsers++;
+//         }
+//     }
+//     return inactiveUsers;
+// }
+
+// let greenEyedUsers = getGreenEyedUsers(users);
+// console.log(`Out of our green eyed users ${greenEyedUsersActive(greenEyedUsers)} are active and ${greenEyedUsersInactive(greenEyedUsers)} are inactive`);
 
