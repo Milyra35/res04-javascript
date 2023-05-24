@@ -295,9 +295,9 @@ function getEyeColorUsers(users, eyeColor, isActive) {
 
 console.log(`Out of our brown eyed users ${getEyeColorUsers(users, "brown", true)} are active and ${getEyeColorUsers(users, "brown", false)} are inactive`);
 
-console.log(`Out of our green eyed users ${getEyeColorUsers(users, "blue", true)} are active and ${getEyeColorUsers(users, "blue", false)} are inactive`);
+console.log(`Out of our green eyed users ${getEyeColorUsers(users, "green", true)} are active and ${getEyeColorUsers(users, "green", false)} are inactive`);
 
-console.log(`Out of our blue eyed users ${getEyeColorUsers(users, "green", true)} are active and ${getEyeColorUsers(users, "green", false)} are inactive`);
+console.log(`Out of our blue eyed users ${getEyeColorUsers(users, "blue", true)} are active and ${getEyeColorUsers(users, "blue", false)} are inactive`);
 
 // function brownEyedUsersActive(usersBrownEyed) {
 //     let activeUsersBrownEyes = 0;
