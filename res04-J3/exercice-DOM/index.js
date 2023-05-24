@@ -83,15 +83,26 @@ function exercice5()
 {
     let stageBox = document.getElementById("stage");
     let blueBox = document.getElementById("blue");
+    let redBox = document.getElementById("red");
+    let greenBox = document.getElementById("green");
     let btnTurn = document.getElementById("btn-turn");
     
     btnTurn.addEventListener("click", function(event) {
-        
+        blueBox.style.backgroundColor = "red";
+        redBox.style.backgroundColor = "green";
+        greenBox.style.backgroundColor = "blue";
     });
 }
+exercice5();
 
 
 function exercice6()
 {
-
+    let btnRoll = document.getElementById("btn-roll");
+    let ballRoll = document.getElementById("ball");
+    
+    btnRoll.addEventListener("click", function(event) {
+        ballRoll.classList.add("roll");
+    })
 }
+exercice6();
