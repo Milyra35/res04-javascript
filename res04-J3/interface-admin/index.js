@@ -5,15 +5,23 @@ function openOrCloseNav() {
     for (let i=0; i<titleClick.length; i++) {
         titleClick[i].addEventListener("click", function(event) {
             let title = event.target;
-            let navToHide = document.querySelectorAll("nav ul");
+            let data = title.getAttribute("data-nav");
+            let navToHide = document.querySelector("ul[data-nav = "+ data +" ]");
             
-            for (nav of navToHide) {
-                nav.classList.toggle("close");
-            }
+            navToHide.classList.toggle("close");
+            
+            console.log(title);
         });
-        
     }
-    return title;
+}
+
+function openAside() {
+    let clickAside = document.getElementById("click-aside");
+    
+    clickAside.addEventListener("click", function() {
+        let nav = document.querySelector("main aside");
+        nav.classList.toggle("close");
+    })
 }
 
 
@@ -21,4 +29,5 @@ function openOrCloseNav() {
 
 window.addEventListener("DOMContentLoaded", function(){
     openOrCloseNav();
+    openAside();
 });

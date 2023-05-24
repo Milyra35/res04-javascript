@@ -8,10 +8,24 @@ body {
 header {
     display:grid;
     grid-template-columns:0.25fr 0.75fr;
+    
 }
-header img {
+header section:first-of-type {
     grid-column:1/2;
     margin:0 auto;
+    width:100%;
+    height:14vh;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+header section:last-of-type {
+    grid-column:2/3;
+    border-bottom:1px solid black;
+}
+header span {
+    grid-column:1/2;
+    font-size:3em;
 }
 
 
@@ -24,8 +38,7 @@ main {
 
 aside {
     grid-column:1/2;
-}
-aside {
+    border-right:1px solid black;
     padding:.5rem 1rem;
 }
 aside nav h2 {
@@ -53,9 +66,8 @@ a:hover {
 }
 
 
-section {
+main section {
     grid-column:2/3;
     height:30rem;
-    border-top:1px solid black;
-    border-left:1px solid black;
+    
 }
