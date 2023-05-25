@@ -43,8 +43,57 @@
                     </ul>
                 </nav>
             </aside>
-            <section>
-                Bonjour
+            <section class="open" id="table">
+                <h2>Liste des utilisateurs</h2>
+                <section>
+                    <button><span class="bi-person-fill-add"></span> Ajouter un utilisateur</button>
+                </section>
+                <section>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nom</th>
+                                <th>Age</th>
+                                <th>Actif</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--<tr>
+                                <td>0</td>
+                                <td>Marsh Obrien</td>
+                                <td>24</td>
+                                <td><span class="bi-person-fill-add"></span></td>
+                                <td>
+                                    <a href="#"><span class="bi-eye"></span></a>
+                                    <a href="#"><span class="bi-pen"></span></a>
+                                    <button><span class="bi-trash3"></span></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Marsh Obrien</td>
+                                <td>24</td>
+                                <td><span class="bi-person-fill-add"></span></td>
+                                <td>
+                                    <a href="#"><span class="bi-eye"></span></a>
+                                    <a href="#"><span class="bi-pen"></span></a>
+                                    <button><span class="bi-trash3"></span></button>
+                                </td>
+                            </tr>-->
+                        </tbody>
+                    </table>
+                </section>
+            </section>
+            <section class="close" id="modal-delete">
+                <section id="modal-confirm">
+                    <p>Etes-vous sûr-e de vouloir supprimer cet utilisateur ?</p>
+                    <div id="btn">
+                        <button id="cancel-btn">Annuler</button>
+                        <button>Supprimer</button>
+                    </div>
+                </section>
             </section>
         </main>
         <script type="application/javascript" src="index.js"></script>

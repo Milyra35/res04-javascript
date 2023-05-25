@@ -1,0 +1,30 @@
+@import "libs/_reset.scss";
+
+body {
+    font-family:"Montserrat", sans-serif;
+    display:grid;
+    grid-template-rows:8vh 92vh;
+    
+    header {
+        height:8vh;
+        menu {
+            display:flex;
+            h2 {
+                font-size:1.5rem;
+                padding:.5rem 2rem;
+            }
+            button {
+                padding:0 2rem;
+            }
+        }
+    }
+    main {
+        &#scene {
+            width:100vw;
+            display:grid;
+            grid-template-rows:repeat(10, 1fr);
+            grid-template-columns:repeat(10, 1fr);
+            border:1px dotted rgba(0,0,0,.2);
+        }
+    }
+}
