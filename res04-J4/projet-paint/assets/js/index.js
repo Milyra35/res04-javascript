@@ -1,11 +1,38 @@
-function createGrid(rows) {
+function createGrid(rows, cols) {
     let scene = document.getElementById("scene");
-    let row = document.createElement("div");
+    
     
     for (let i=0; i<rows; i++) {
-        let col = document.createElement("div");
-        col.id = `box${i}`;
-        scene.appendChild(col);
+        let row = document.createElement("div");
+        
+        for (let j=0; j<cols; j++) {
+            let col = document.createElement("div");
+            col.id = `box${i}${j}`;
+            row.appendChild(col);
+            col.classList.add("dotted-border");
+        }
+        scene.appendChild(row);
     }
 }
-createGrid(100);
+
+function selectBox() {
+    let boxes = document.querySelectorAll("main > div div");
+    
+    for (box of boxes) {
+        
+        box.addEventListener("click", function(event) {
+            // box.classList.remove("selected");
+            let click = event.target;
+            click.classList.toggle("selected");
+            
+        });
+    }
+}
+
+
+
+
+window.addEventListener("DOMContentLoaded", function(){
+    createGrid(10, 10);
+    selectBox();
+});
