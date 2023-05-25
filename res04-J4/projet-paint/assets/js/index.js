@@ -1,7 +1,7 @@
 function createGrid(rows, cols) {
     let scene = document.getElementById("scene");
     scene.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
-    
+    scene.innerHTML = "";
     
     for (let i=0; i<rows; i++) {
         let row = document.createElement("div");
@@ -27,7 +27,7 @@ function selectBox() {
                 otherBox.classList.remove("selected");
             }
             let click = event.target;
-            click.classList.toggle("selected");
+            click.classList.add("selected");
         });
     }
 }
@@ -54,11 +54,74 @@ function changeColor() {
     }
 }
 
+function changeRowsAndCols() {
+    let changeRow = document.getElementById("change-row");
+    let changeCol = document.getElementById("change-col");
+    
+    let scene = document.getElementById("scene");
+    scene.innerHTML = "";
+    
+    changeRow.addEventListener("change", function(event) {
+        let click = event.target.value;
+        sessionStorage.setItem("number", click);
+        console.log(click);
+        let actualRow = parseInt(sessionStorage.getItem("number"));
+        let actualCol = parseInt(sessionStorage.getItem("number"));
+        createGrid(actualRow, actualCol);
+        selectBox();
+        changeColor();
+    });
+    
+    changeCol.addEventListener("change", function(event) {
+        let click = event.target.value;
+        sessionStorage.setItem("number", click);
+        console.log(click);
+        let actualRow = parseInt(sessionStorage.getItem("number"));
+        let actualCol = parseInt(sessionStorage.getItem("number"));
+        createGrid(actualRow, actualCol);
+        selectBox();
+        changeColor();
+    });
+}
 
+function eraser() {
+    let btnEraser = document.getElementById("btn-eraser");
+    let boxes = document.querySelectorAll("main > div div");
+
+    btnEraser.addEventListener("click", function(event) {
+        btnEraser.classList.toggle("erase");
+        for (box of boxes) {
+            box.addEventListener("click", function(event) {
+                let eraseBox = event.target;
+                eraseBox.classList.add("erase-box");
+                console.log(boxbox);
+            });
+        }
+    });
+}
+
+function bucketPaint() {
+    let btnBucket = document.getElementById("btn-color-all");
+    let colors = document.querySelector("header menu input");
+    let scene = document.getElementById("scene");
+    
+    colors.addEventListener("change", function(event) {
+        let click = event.target.value;
+        sessionStorage.setItem("color", click);
+        
+        btnBucket.addEventListener("click", function(event) {
+            let chosenColor = sessionStorage.getItem("color");
+            scene.style.backgroundColor = chosenColor;
+        });
+    });
+}
 
 
 window.addEventListener("DOMContentLoaded", function(){
-    createGrid(30, 30);
+    createGrid();
     selectBox();
     changeColor();
+    changeRowsAndCols();
+    eraser();
+    bucketPaint();
 });

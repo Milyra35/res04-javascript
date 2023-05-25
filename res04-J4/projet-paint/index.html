@@ -12,12 +12,26 @@
     <body>
         <header>
             <menu>
-                <label for="change-color">Couleur</label>
-                <input type="color" name="change-color" id="change-color">
-                <label for="change-row">Lignes</label>
-                <input type="number" name="change-row" id="change-row">
-                <label for="change-col">Colonnes</label>
-                <input type="number" name="change-col" id="change-col">
+                <div>
+                    <label for="change-color">Couleur</label>
+                    <input type="color" name="change-color" id="change-color">
+                </div>
+                <div>
+                    <label for="change-row">Lignes</label>
+                    <input type="number" name="change-row" id="change-row">
+                </div>
+                <div>
+                    <label for="change-col">Colonnes</label>
+                    <input type="number" name="change-col" id="change-col">
+                </div>
+                <div>
+                    <label for="erase">Effacer</label>
+                    <button id="btn-eraser"><span class="bi-x-circle"></span></button>
+                </div>
+                <div>
+                    <label for="btn-color-all">Remplir</label>
+                    <button id="btn-color-all"><span class="bi-paint-bucket"></span></button>
+                </div>
             </menu>
         </header>
         <main id="scene">

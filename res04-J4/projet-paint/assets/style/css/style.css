@@ -63,14 +63,24 @@ body header {
 body header menu {
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
+  padding: 0.5rem 0;
 }
-body header menu label {
+body header menu div label {
   font-size: 1.5rem;
-  padding: 0.5rem 2rem;
 }
-body header menu input {
+body header menu div input {
   width: 4rem;
   height: 2rem;
+}
+body header menu div input:not(:first-of-type) {
+  width: 10rem;
+}
+body header menu div button {
+  border: none;
+  font-size: 1.5rem;
+  background-color: transparent;
+  cursor: pointer;
 }
 body main#scene {
   width: 100vw;
@@ -86,6 +96,12 @@ body .dotted-border {
 }
 body .selected {
   border: 1px solid black;
+}
+body .erase {
+  color: red;
+}
+body .erase-box {
+  background-color: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */

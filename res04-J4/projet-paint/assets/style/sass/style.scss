@@ -11,15 +11,28 @@ body {
         menu {
             display:flex;
             align-items:center;
+            justify-content:space-evenly;
+            padding:0.5rem 0;
             
-            label {
-                font-size:1.5rem;
-                padding:.5rem 2rem;
-            }
-            
-            input {
-                width:4rem;
-                height:2rem;
+            div {
+                label {
+                    font-size:1.5rem;
+                }
+                
+                input {
+                    width:4rem;
+                    height:2rem;
+                    
+                    &:not(:first-of-type) {
+                        width:10rem;
+                    }
+                }
+                button {
+                    border:none;
+                    font-size:1.5rem;
+                    background-color:transparent;
+                    cursor:pointer;
+                }
             }
         }
     }
@@ -45,5 +58,11 @@ body {
     }
     .selected {
         border:1px solid black;
+    }
+    .erase {
+        color:red;
+    }
+    .erase-box {
+        background-color:#fff;
     }
 }
