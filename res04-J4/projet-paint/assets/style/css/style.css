@@ -64,11 +64,11 @@ body header menu {
   display: flex;
   align-items: center;
 }
-body header menu h2 {
+body header menu label {
   font-size: 1.5rem;
   padding: 0.5rem 2rem;
 }
-body header menu button {
+body header menu input {
   width: 4rem;
   height: 2rem;
 }
