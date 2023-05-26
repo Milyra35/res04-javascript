@@ -28,6 +28,9 @@ header span {
 header img {
     grid-column:3/4;
 }
+header section:first-of-type.close {
+    border-right:none;
+}
 
 
 
@@ -130,6 +133,8 @@ main section section:nth-of-type(2) table a {
     display:flex;
     align-items:center;
     justify-content:center;
+    position:relative;
+    bottom:46.6rem;
 }
 #modal-confirm {
     background-color:#fff;
@@ -149,7 +154,7 @@ main section section:nth-of-type(2) table a {
 #btn button {
     margin:0 1rem;
 }
-#btn #cancel {
+#btn #cancel-btn {
     border:1px solid black;
     color:black;
     background-color:transparent;
@@ -157,9 +162,6 @@ main section section:nth-of-type(2) table a {
 #btn button:last-of-type {
     background-color:#b50604;
 }
-
-.closed-modal {
+#modal-delete.close {
     display:none;
-    position:relative;
-    bottom:46.6rem;
 }

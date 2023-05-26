@@ -173,15 +173,33 @@ function openModal() {
     let btnDeleteUser = document.querySelectorAll("section table tbody tr td button");
     let modalDelete = document.getElementById("modal-delete");
     
-    btnDeleteUser.addEventListener("click", function(event) {
-       modalDelete.classList.toggle("open"); 
+    for(btn of btnDeleteUser) {
+        btn.addEventListener("click", function(event) {
+            modalDelete.classList.toggle("open");
+            modalDelete.classList.toggle("close");
+        });
+    }
+    
+    let modalCancel = document.getElementById("cancel-btn");
+    modalCancel.addEventListener("click", function() {
+       modalDelete.classList.toggle("close"); 
     });
 }
 
 
-function modalDelete() {
-    
-}
+// function modalDelete(user = null) {
+//     let stage = document.getElementById("stage");
+//     let deleteModal = document.getElementById("delete-modal");
+//     let deleteModalUser = document.querySelector("#delete-modal h4");
+
+//     stage.classList.toggle("open");
+//     stage.classList.toggle("close");
+//     deleteModal.classList.toggle("open");
+//     deleteModal.classList.toggle("close");
+
+//     if(user !== null)
+//     deleteModalUser.innerHTML = user;
+// }
 
 
 
