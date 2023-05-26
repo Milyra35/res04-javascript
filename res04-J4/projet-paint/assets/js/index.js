@@ -32,28 +32,6 @@ function selectBox() {
     }
 }
 
-
-function changeColor() {
-    let colors = document.querySelector("header menu input");
-    
-    colors.addEventListener("change", function(event) {
-        let click = event.target.value;
-        sessionStorage.setItem("color", click);
-        console.log(click);
-    });
-    
-    
-    let boxes = document.querySelectorAll("main > div div");
-    
-    for (box of boxes) {
-        box.addEventListener("click", function(event) {
-            let actualColor = sessionStorage.getItem("color");
-            let click = event.target;
-            click.style.backgroundColor = actualColor;
-        });
-    }
-}
-
 function changeRowsAndCols() {
     let changeRow = document.getElementById("change-row");
     let changeCol = document.getElementById("change-col");
@@ -84,9 +62,65 @@ function changeRowsAndCols() {
     });
 }
 
+
+function changeColor() {
+    let colors = document.querySelector("header menu input");
+    
+    colors.addEventListener("change", function(event) {
+        let click = event.target.value;
+        sessionStorage.setItem("color", click);
+        console.log(click);
+    });
+    
+    
+    let boxes = document.querySelectorAll("main > div div");
+    
+    for (box of boxes) {
+        box.addEventListener("click", function(event) {
+            let actualColor = sessionStorage.getItem("color");
+            let click = event.target;
+            click.style.backgroundColor = actualColor;
+        });
+    }
+}
+
+
+// function changeColor() {
+//     let colors = document.querySelector("header menu input");
+//     let eraserActive = false;
+//     colors.addEventListener("change", function(event) {
+//         let click = event.target.value;
+//         sessionStorage.setItem("color", click);
+//         console.log(click);
+//     });
+    
+    
+//     let boxes = document.querySelectorAll("main > div div");
+    
+//     for (box of boxes) {
+//         box.addEventListener("click", function(event) {
+//             let actualColor = sessionStorage.getItem("color");
+//             let click = event.target;
+//             let btnEraser = document.getElementById("btn-eraser");
+            
+//             btnEraser.addEventListener("click", function(event) {
+//                 btnEraser = !eraserActive;
+//                 if (eraserActive) {
+//                 click.style.backgroundColor = actualColor;
+//                 } 
+//                 else {
+//                     click.style.backgroundColor = "";
+//                 }
+//             });
+            
+//         });
+//     }
+// }
+
 function eraser() {
     let btnEraser = document.getElementById("btn-eraser");
     let boxes = document.querySelectorAll("main > div div");
+    let eraserActive = true;
 
     btnEraser.addEventListener("click", function(event) {
         btnEraser.classList.toggle("erase");
@@ -94,11 +128,14 @@ function eraser() {
             box.addEventListener("click", function(event) {
                 let eraseBox = event.target;
                 eraseBox.classList.add("erase-box");
-                console.log(boxbox);
+                console.log(eraseBox);
             });
         }
     });
 }
+
+
+
 
 function bucketPaint() {
     let btnBucket = document.getElementById("btn-color-all");
@@ -122,6 +159,5 @@ window.addEventListener("DOMContentLoaded", function(){
     selectBox();
     changeColor();
     changeRowsAndCols();
-    eraser();
     bucketPaint();
 });

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .case {
+      width: 30px;
+      height: 30px;
+      border: 1px solid black;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <button id="choisirCouleur">Choisir une couleur</button>
+  <button id="boutonGomme">Gomme</button>
+  <div id="grille"></div>
+
+  <script>
+    // Création de la grille
+    const grille = [];
+    const tailleGrille = 10;
+    let couleurChoisie = "red";
+    let gommeActive = false;
+
+    // Remplissage de la grille avec des zéros
+    for (let i = 0; i < tailleGrille; i++) {
+      grille[i] = [];
+      for (let j = 0; j < tailleGrille; j++) {
+        grille[i][j] = 0;
+      }
+    }
+
+    // Affichage de la grille
+    const grilleContainer = document.getElementById("grille");
+    for (let i = 0; i < tailleGrille; i++) {
+      for (let j = 0; j < tailleGrille; j++) {
+        const caseElement = document.createElement("div");
+        caseElement.classList.add("case");
+        grilleContainer.appendChild(caseElement);
+
+        caseElement.addEventListener("mousedown", function() {
+          if (gommeActive) {
+            caseElement.style.backgroundColor = "";
+          } else {
+            caseElement.style.backgroundColor = couleurChoisie;
+          }
+        });
+      }
+      grilleContainer.appendChild(document.createElement("br"));
+    }
+
+    // Gestion du bouton de choix de couleur
+    const boutonChoisirCouleur = document.getElementById("choisirCouleur");
+    boutonChoisirCouleur.addEventListener("click", function() {
+      couleurChoisie = prompt("Entrez une couleur (ex: red, blue, green) :");
+    });
+
+    // Gestion du bouton de gomme
+    const boutonGomme = document.getElementById("boutonGomme");
+    boutonGomme.addEventListener("click", function() {
+      gommeActive = !gommeActive;
+      if (gommeActive) {
+        boutonGomme.textContent = "Mode Crayon";
+      } else {
+        boutonGomme.textContent = "Gomme";
+      }
+    });
+  </script>
+</body>
+</html>

@@ -67,7 +67,7 @@ body header menu {
   padding: 0.5rem 0;
 }
 body header menu div label {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 body header menu div input {
   width: 4rem;
@@ -75,6 +75,7 @@ body header menu div input {
 }
 body header menu div input:not(:first-of-type) {
   width: 10rem;
+  height: 1.5rem;
 }
 body header menu div button {
   border: none;
@@ -101,7 +102,7 @@ body .erase {
   color: red;
 }
 body .erase-box {
-  background-color: #fff;
+  background-color: transparent;
 }
 
 /*# sourceMappingURL=style.css.map */

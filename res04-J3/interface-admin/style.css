@@ -68,7 +68,6 @@ a:hover {
 }
 main > section {
     grid-column:2/3;
-    height:30rem;
     padding:1.8rem;
 }
 main section h2 {
@@ -126,6 +125,7 @@ main section section:nth-of-type(2) table a {
 
 #modal-delete {
     width:100%;
+    height:43rem;
     background-color:rgba(0, 0, 0, 0.3);
     display:flex;
     align-items:center;
@@ -156,4 +156,10 @@ main section section:nth-of-type(2) table a {
 }
 #btn button:last-of-type {
     background-color:#b50604;
+}
+
+.closed-modal {
+    display:none;
+    position:relative;
+    bottom:46.6rem;
 }

@@ -16,7 +16,7 @@ body {
             
             div {
                 label {
-                    font-size:1.5rem;
+                    font-size:1.2rem;
                 }
                 
                 input {
@@ -25,6 +25,7 @@ body {
                     
                     &:not(:first-of-type) {
                         width:10rem;
+                        height:1.5rem;
                     }
                 }
                 button {
@@ -63,6 +64,6 @@ body {
         color:red;
     }
     .erase-box {
-        background-color:#fff;
+        background-color:transparent;
     }
 }
