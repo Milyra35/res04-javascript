@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>JS Paint</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="assets/style/css/style.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    </head>
+    <body>
+        <header>
+            <h1 class="sr-only">JS Paint</h1>
+            <menu>
+                <li>
+                    <label for="color-picker-fill">
+                        Couleur
+                    </label>
+                    <input type="color" id="color-picker-fill" />
+                </li>
+                <li>
+                    <label for="grid-rows">
+                        Row
+                    </label>
+                    <input type="number" class="grid-size" id="grid-rows" value="10"/>
+                </li>
+                <li>
+                    <label for="grid-cols">
+                        Col
+                    </label>
+                    <input type="number" class="grid-size" id="grid-cols" value="10"/>
+                </li>
+                <li>
+                    <label for="eraser">
+                        Effacer
+                    </label>
+                    <button id="eraser">
+                        <span class="bi bi-x-circle"></span>
+                    </button>
+                </li>
+                <li>
+                    <label for="bucket">
+                        Remplir
+                    </label>
+                    <button id="bucket">
+                        <span class="bi bi-paint-bucket"></span>
+                    </button>
+                </li>
+                <li>
+                    <label for="shapes">
+                        Formes
+                    </label>
+                    <button id="shapes">
+                        <span class="bi bi-square-fill"></span> <span class="bi bi-triangle-fill"></span>
+                    </button>
+                </li>
+                <li>
+                    <label for="text">
+                        Text
+                    </label>
+                    <button id="text">
+                        <span class="bi bi-fonts"></span> <span class="bi bi-cursor-text"></span>
+                    </button>
+                </li>
+            </menu>
+        </header>
+        <main id="scene">
+
+        </main>
+        <aside>
+            <section id="shapes-menu">
+                <h2>
+                    <span class="bi bi-square-fill"></span> <span class="bi bi-triangle-fill"></span>
+                </h2>
+                <section>
+                    <h3>
+                        <span class="bi bi-square-fill"></span>
+                    </h3>
+                    <fieldset>
+                        <label for="square-height">Hauteur</label>
+                        <input type="number" id="square-height" value="2" />
+                    </fieldset>
+                    <fieldset>
+                        <label for="square-width">Largeur</label>
+                        <input type="number" id="square-width" value="2" />
+                    </fieldset>
+                    <fieldset>
+                        <label for="square-pos-y">Position Y</label>
+                        <input type="number" id="square-pos-y" value="0" />
+                    </fieldset>
+                    <fieldset>
+                        <label for="square-pos-x">Position X</label>
+                        <input type="number" id="square-pos-x" value="0" />
+                    </fieldset>
+                    <fieldset>
+                        <label for="square-color">Couleur</label>
+                        <input type="color" id="square-color" />
+                    </fieldset>
+                    <button id="add-square">Ajouter un rectangle</button>
+                </section>
+                <section>
+                    <h3>
+                        <span class="bi bi-triangle-fill"></span>
+                    </h3>
+                    <fieldset>
+                        <label for="triangle-height">Hauteur</label>
+                        <input type="number" id="triangle-height" value="2" />
+                    </fieldset>
+                    <fieldset>
+                        <label for="triangle-pos-y">Position Y</label>
+                        <input type="number" id="triangle-pos-y" value="0" />
+                    </fieldset>
+                    <fieldset>
+                        <label for="triangle-pos-x">Position X</label>
+                        <input type="number" id="triangle-pos-x" value="1" />
+                    </fieldset>
+                    <fieldset>
+                        <label for="triangle-color">Couleur</label>
+                        <input type="color" id="triangle-color" />
+                    </fieldset>
+                    <button id="add-triangle">Ajouter un triangle</button>
+                </section>
+            </section>
+            <section id="text-menu">
+                <menu>
+                    <li>
+                        <button id="text-bold" class="text-button">
+                            <span class="bi bi-type-bold"></span>
+                        </button>
+                    </li>
+                    <li>
+                        <button id="text-italic" class="text-button">
+                            <span class="bi bi-type-italic"></span>
+                        </button>
+                    </li>
+                    <li>
+                        <button id="text-underline" class="text-button">
+                            <span class="bi bi-type-underline"></span>
+                        </button>
+                    </li>
+                    <li>
+                        <button id="text-left" class="text-align-button">
+                            <span class="bi bi-text-left"></span>
+                        </button>
+                    </li>
+                    <li>
+                        <button id="text-center" class="text-align-button">
+                            <span class="bi bi-text-center"></span>
+                        </button>
+                    </li>
+                    <li>
+                        <button id="text-right" class="text-align-button">
+                            <span class="bi bi-text-right"></span>
+                        </button>
+                    </li>
+                </menu>
+                <fieldset>
+                    <label for="text-pos-y">Position Y</label>
+                    <input type="number" id="text-pos-y" value="0" />
+                </fieldset>
+                <fieldset>
+                    <label for="text-pos-x">Position X</label>
+                    <input type="number" id="text-pos-x" value="0" />
+                </fieldset>
+                <fieldset>
+                    <label for="text-content">Texte</label>
+                    <textarea id="text-content">
+
+                    </textarea>
+                </fieldset>
+                <button id="add-text">Ajouter un texte</button>
+            </section>
+        </aside>
+        <script type="application/javascript" src="assets/js/correction.js"></script>
+    </body>
+</html>
