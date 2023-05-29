@@ -45,17 +45,9 @@ export {Pizza};
 
 class ToDoList {
     #task1;
-    #task2;
-    #task3;
-    #task4;
-    #task5;
     
-    constructor(task1, task2, task3, task4, task5) {
+    constructor(task1) {
         this.#task1 = task1;
-        this.#task2 = task2;
-        this.#task3 = task3;
-        this.#task4 = task4;
-        this.#task5 = task5;
     }
     
     get task1() {
@@ -65,32 +57,16 @@ class ToDoList {
         this.#task1 = task1;
     }
     
-    get task2() {
-        return this.#task2;
-    }
-    set task2 (task2) {
-        this.#task2 = task2;
-    }
-    
-    get task3() {
-        return this.#task3;
-    }
-    set task3 (task3) {
-        this.#task3 = task3;
-    }
-    
-    get task4() {
-        return this.#task4;
-    }
-    set task4 (task4) {
-        this.#task4 = task4;
-    }
-    
-    get task5() {
-        return this.#task5;
-    }
-    set task5 (task5) {
-        this.#task5 = task5;
+    getInputs(ToDoList) {
+        let body = document.querySelector("body");
+        let section = document.createElement("section");
+        let ul = document.createElement("ul");
+        let li = document.createElement("li");
+        body.appendChild(section);
+        section.appendChild(ul);
+        ul.appendChild(li);
+        let text = document.createTextNode(ToDoList);
+        li.appendChild(text);
     }
 }
 
