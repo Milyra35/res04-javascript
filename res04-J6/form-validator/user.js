@@ -6,8 +6,9 @@ class User {
     #password;
     #confirmPassword;
     #biography;
+    #errors;
     
-    constructor (lastName, firstName, nickName, email, password, confirmPassword, biography = null) 
+    constructor (lastName, firstName, nickName, email, password, confirmPassword, biography = null, errors = []) 
     {
         this.#lastName = lastName;
         this.#firstName = firstName;
@@ -85,44 +86,107 @@ class User {
     {
         if (this.firstName.length >= 2 && this.firstName.length <= 64)
         {
-            console.log(true);
+            return true;
         }
         else 
         {
-            console.log(false);
+            return false;
         }
     }
     
     validateLastName()
     {
-        
+        if (this.lastName.length >= 2 && this.lastName.length <= 64)
+        {
+            return true;
+        }
+        else 
+        {
+            return false;
+        }
     }
     
     validateNickName(nameList) 
     {
         
+        if (nameList.includes(this.nickName)) 
+        {
+            console.log("Ce pseudo existe déjà");
+            return false;
+        }
+        else 
+        {
+            return true;
+        }
     }
     
     validateEmail() 
     {
+        let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         
+        if (emailPattern.test(this.email)) 
+        {
+            return true;
+        }
+        else 
+        {
+            console.log("L'adresse email n'est pas valide");
+            return false;
+        }
     }
     
     validatePassword()
     {
+        let passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[A-Za-z\d!@#$%^&*()]{12,}$/;
         
+        if (this.password === this.confirmPassword &&
+            passwordPattern.test(this.password))
+        {
+            return true;
+        }
+        else 
+        {
+            console.log("Le mot de passe doit contenir 1 majuscule, un nombre, un caractère spécial et au moins 12 caractères");
+            return false;
+        }
     }
     
     validateBiography() 
+    {
+        if (this.biography.length >= 128 
+            && this.biography.length <= 512 
+            && this.biography !== null)
+        {
+            return true;
+        }
+        else
+        {
+            console.log("Pas assez long, minimum 128 caractères");
+            return false;
+        }
+    }
+    
+    addError(error)
+    {
+        
+    }
+    
+    resetErrors()
     {
         
     }
     
     validate()
     {
+        let nameList = ["nickname1", "Superman", "Mario"];
         return (
-            this.validateFirstName(this.firstName) &&
-            this.validateLastName(this.lastName)
+            this.resetErrors() &&
+            this.validateFirstName() &&
+            this.validateLastName() &&
+            this.validateNickName(nameList) &&
+            this.validateEmail() &&
+            this.validatePassword() &&
+            this.validateBiography()
             );
     }
 }
