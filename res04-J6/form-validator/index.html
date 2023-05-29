@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Form validator</title>
+        <link rel="stylesheet" href="style.css" type="text/css" />
+    </head>
+    <body>
+        <form action="">
+            <fieldset>
+                <label for="lastname">Nom</label>
+                <input type="text" name="lastname" id="lastname" required>
+                
+                <label for="firstname">Prénom</label>
+                <input type="text" name="firstname" id="firstname" required>
+                
+                <label for="nickname">Pseudo</label>
+                <input type="text" name="nickname" id="nickname" required>
+                
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required>
+                
+                <label for="password">Mot de passe</label>
+                <input type="password" name="password" id="password" required>
+                
+                <label for="password-confirm">Confirmation du mot de passe</label>
+                <input type="password" name="password-confirm" id="password-confirm" required>
+                
+                <label for="bio">Biographie</label>
+                <textarea name="bio" id="bio"></textarea>
+                
+                <button id="submit">Envoyer</button>
+            </fieldset>
+        </form>
+        
+        <script type="module" src="index.js"></script>
+    </body>
+</html>

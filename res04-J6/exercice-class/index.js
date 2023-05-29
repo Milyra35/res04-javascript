@@ -16,12 +16,16 @@ function menuPizza() {
 function toDoList() {
     let addTaskBtn = document.getElementById("add-task");
     let task = document.querySelector("body form input");
-    let x=0;
+    
+    let x = 0;
     
     addTaskBtn.addEventListener("click", function(event) {
         event.preventDefault();
-        let list = new ToDoList(task.value);
-        list.getInputs(task.value);
+        if (x<5) {
+            let list = new ToDoList(task.value);
+            list.getInputs(task.value);
+            x++;
+        }
     });
 }
 
