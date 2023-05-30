@@ -5,10 +5,10 @@ import {Admin} from './admin.js'
 // let marie = newName.fullName();
 // console.log(marie);
 
-let newUser = new User("Marie", "Richir");
+let newUser = new User("Marie", "Richir", "développeuse");
 // let marie = newUser.fullName();
 let newAdmin = new Admin("toto", "tata");
 // let toto = newAdmin.canEditArticles();
-console.log(newUser);
+console.log(newUser.job);
 console.log(newAdmin.fullName());
 console.log(newAdmin.canEditArticles());

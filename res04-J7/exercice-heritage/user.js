@@ -1,12 +1,10 @@
 class User {
     #name;
     #firstName;
-    #job;
     
-    constructor (name, firstName, job) {
+    constructor (name, firstName) {
         this.#name = name;
         this.#firstName = firstName;
-        this.#job = job;
     }
     
     get name() {
@@ -24,10 +22,10 @@ class User {
     }
     
     get job() {
-        return this.#job;
+        return this._job;
     }
     set job(job) {
-        this.#job = job;
+        return (this._job = job);
     }
     
     fullName() {
