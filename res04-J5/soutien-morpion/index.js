@@ -25,7 +25,7 @@ function gameGrid() {
             }
             let click = event.target;
             click.style.border = "1px solid black";
-            
+    
             if (!gameIsOver && event.target.innerHTML === "")
             {
                 let row = parseInt(event.target.id.charAt(4));
@@ -33,7 +33,7 @@ function gameGrid() {
                 
                 grid[row][col] = currentPlayer;
                 event.target.innerHTML = currentPlayer;
-                
+    
                 if (checkWin(currentPlayer)) 
                 {
                     console.log(`Le joueur ${currentPlayer} a gagné !`);
@@ -55,29 +55,29 @@ function gameGrid() {
 
 
 function checkWin(player) {
-  // Vérifier les combinaisons horizontales
-  for (let i = 0; i < 3; i++) {
-    if (grid[i][0] === player && grid[i][1] === player && grid[i][2] === player) {
-      return true;
+    // Vérifier les combinaisons horizontales
+    for (let i = 0; i < 3; i++) {
+        if (grid[i][0] === player && grid[i][1] === player && grid[i][2] === player) {
+          return true;
+        }
     }
-  }
-  
-  // Vérifier les combinaisons verticales
-  for (let i = 0; i < 3; i++) {
-    if (grid[0][i] === player && grid[1][i] === player && grid[2][i] === player) {
-      return true;
+    
+    // Vérifier les combinaisons verticales
+    for (let i = 0; i < 3; i++) {
+        if (grid[0][i] === player && grid[1][i] === player && grid[2][i] === player) {
+          return true;
+        }
     }
-  }
-  
-  // Vérifier les combinaisons diagonales
-  if (
-    (grid[0][0] === player && grid[1][1] === player && grid[2][2] === player) ||
-    (grid[0][2] === player && grid[1][1] === player && grid[2][0] === player)
-  ) {
-    return true;
-  }
-  
-  return false;
+    
+    // Vérifier les combinaisons diagonales
+        if (
+        (grid[0][0] === player && grid[1][1] === player && grid[2][2] === player) ||
+        (grid[0][2] === player && grid[1][1] === player && grid[2][0] === player)
+        ) {
+            return true;
+        }
+    
+    return false;
 }
 
 function checkDraw() {
