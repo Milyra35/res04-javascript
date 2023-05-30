@@ -17,6 +17,7 @@ class User {
         this.#password = password;
         this.#confirmPassword = confirmPassword;
         this.#biography = biography;
+        this.#errors = errors;
     }
     
     get lastName() 
@@ -82,14 +83,28 @@ class User {
         this.#biography = biography;
     }
     
+    get errors()
+    {
+        return this.#errors;
+    }
+    set errors(errors)
+    {
+        this.#errors = errors;
+    }
+    
     validateFirstName() 
     {
         if (this.firstName.length >= 2 && this.firstName.length <= 64)
         {
+            let errorFirstName = document.getElementById("errorFirstName");
+            errorFirstName.innerHTML = "";
             return true;
         }
         else 
         {
+            let errorFirstName = document.getElementById("errorFirstName");
+            errorFirstName.innerHTML = "Le prénom doit avoir entre 2 et 64 caractères";
+            this.addError("firstName", "Le prénom doit avoir entre 2 et 64 caractères");
             return false;
         }
     }
@@ -98,10 +113,15 @@ class User {
     {
         if (this.lastName.length >= 2 && this.lastName.length <= 64)
         {
+            let errorLastName = document.getElementById("errorLastName");
+            errorLastName.innerHTML = "";
             return true;
         }
         else 
         {
+            let errorLastName = document.getElementById("errorLastName");
+            errorLastName.innerHTML = "Le nom doit avoir entre 2 et 64 caractères";
+            this.addError("lastName", "Le nom doit avoir entre 2 et 64 caractères");
             return false;
         }
     }
@@ -111,42 +131,61 @@ class User {
         
         if (nameList.includes(this.nickName)) 
         {
-            console.log("Ce pseudo existe déjà");
+            let errorNickName = document.getElementById("errorNickName");
+            errorNickName.innerHTML = "Ce pseudo existe déjà";
+            this.addError("nickName", "Ce pseudo existe déjà");
+            return false;
+        }
+        else if (this.nickName.length <= 2)
+        {
+            let errorNickName = document.getElementById("errorNickName");
+            errorNickName.innerHTML = "Il faut au minimum 3 caractères";
+            this.addError("nickName", "Il faut au minimum 3 caractères");
             return false;
         }
         else 
         {
+            let errorNickName = document.getElementById("errorNickName");
+            errorNickName.innerHTML = "";
             return true;
         }
     }
     
     validateEmail() 
     {
-        let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;  
         
         if (emailPattern.test(this.email)) 
         {
+            let errorEmail = document.getElementById("errorEmail");
+            errorEmail.innerHTML = "";
             return true;
         }
         else 
         {
-            console.log("L'adresse email n'est pas valide");
+            let errorEmail = document.getElementById("errorEmail");
+            errorEmail.innerHTML = "Le mail n'est pas valide";
+            this.addError("email", "Le mail n'est pas valide");
             return false;
         }
     }
     
     validatePassword()
     {
-        let passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[A-Za-z\d!@#$%^&*()]{12,}$/;
+        let passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[ -/:-@[-`{-~]).{12,}$/;
         
         if (this.password === this.confirmPassword &&
             passwordPattern.test(this.password))
         {
+            let errorPassword = document.getElementById("errorPassword");
+            errorPassword.innerHTML = "";
             return true;
         }
         else 
         {
-            console.log("Le mot de passe doit contenir 1 majuscule, un nombre, un caractère spécial et au moins 12 caractères");
+            let errorPassword = document.getElementById("errorPassword");
+            errorPassword.innerHTML = "Le mot de passe doit contenir 1 majuscule, un nombre, un caractère spécial et au moins 12 caractères";
+            this.addError("password", "Le mot de passe doit contenir 1 majuscule, un nombre, un caractère spécial et au moins 12 caractères");
             return false;
         }
     }
@@ -157,37 +196,56 @@ class User {
             && this.biography.length <= 512 
             && this.biography !== null)
         {
+            let errorBio = document.getElementById("errorBio");
+            errorBio.innerHTML = "";
+            return true;
+        }
+        else if (this.biography.length === 0) 
+        {
+            let errorBio = document.getElementById("errorBio");
+            errorBio.innerHTML = "";
             return true;
         }
         else
         {
-            console.log("Pas assez long, minimum 128 caractères");
+            let errorBio = document.getElementById("errorBio");
+            errorBio.textContent = "Il faut minimum 128 caractères et maximum 512 caractères";
+            this.addError("biography", "Il faut minimum 128 caractères et maximum 512 caractères");
             return false;
         }
     }
     
-    addError(error)
+    addError(field, error)
     {
-        
+        this.errors.push({field, error});
     }
     
     resetErrors()
     {
-        
+        this.errors = [];
     }
     
     validate()
     {
         let nameList = ["nickname1", "Superman", "Mario"];
+        
+        this.resetErrors();
+
+        let isValidFirstName = this.validateFirstName();
+        let isValidLastName = this.validateLastName();
+        let isValidNickName = this.validateNickName(nameList);
+        let isValidEmail = this.validateEmail();
+        let isValidPassword = this.validatePassword();
+        let isValidBiography = this.validateBiography();
+    
         return (
-            this.resetErrors() &&
-            this.validateFirstName() &&
-            this.validateLastName() &&
-            this.validateNickName(nameList) &&
-            this.validateEmail() &&
-            this.validatePassword() &&
-            this.validateBiography()
-            );
+            isValidFirstName &&
+            isValidLastName &&
+            isValidNickName &&
+            isValidEmail &&
+            isValidPassword &&
+            isValidBiography
+        );
     }
 }
 

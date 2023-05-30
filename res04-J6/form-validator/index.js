@@ -8,7 +8,7 @@ window.addEventListener("DOMContentLoaded", function() {
 function newUser() {
     let submit = document.getElementById("submit");
     
-    submit.addEventListener("click", function() {
+    submit.addEventListener("click", function(event) {
         event.preventDefault();
         
         let lastName = document.getElementById("lastname").value;

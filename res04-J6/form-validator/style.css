@@ -2,7 +2,23 @@ body {
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:sans-serif;
 }
 label {
     display:block;
+}
+p {
+    display:block;
+    margin:0.2rem 0;
+    color:red;
+}
+fieldset {
+    border:none;
+}
+input, textarea {
+    width:17rem;
+    margin:0.2rem 0;
+}
+textarea {
+    height:5rem;
 }
