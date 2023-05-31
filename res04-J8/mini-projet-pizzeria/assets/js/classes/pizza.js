@@ -47,6 +47,7 @@ class Pizza {
             input.setAttribute("type", "number");
             input.setAttribute("max", "3");
             input.setAttribute("min", "1");
+            input.setAttribute("value", "1");
             
             img.src = `${ingredient.file}`;
             h3.innerHTML = `${ingredient.name}`;

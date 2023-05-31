@@ -54,23 +54,20 @@ window.addEventListener("DOMContentLoaded", function() {
         let ingredients = document.querySelectorAll("#stage ul li article");
         let header = document.querySelectorAll("#stage ul li article header");
         
-        //We want to be able to add ingredients 
-        let input = document.querySelectorAll("main aside ul li figure input");
+        
             
         for (let i=0; i<ingredients.length; i++)
         {
             header[i].addEventListener("click", function(event) {
                 let click = event.target;
                 let ingredientSelected = availableIngredients[i];
-                // let indexIngredient = currentPizza.ingredients.indexOf(ingredientSelected);
                 
-                let nbIngredients = input[i].value;
                 //To test if an instance is already created
                 if (currentPizza === null)
                 {
                     currentPizza = new Pizza();
                     currentPizza.display(ingredientSelected);
-                    currentPizza.addIngredients(ingredientSelected + nbIngredients);
+                    currentPizza.addIngredients(ingredientSelected);
                     count = count + 1;
                 }
                 else 
@@ -84,10 +81,13 @@ window.addEventListener("DOMContentLoaded", function() {
                     else 
                     {
                         currentPizza.display(ingredientSelected);
-                        currentPizza.addIngredients(ingredientSelected + nbIngredients);
+                        currentPizza.addIngredients(ingredientSelected);
                         count = count + 1;
                     }
                 }
+                
+                //We want to be able to add ingredients in the pizza
+                
                 
                 ingredients[i].classList.toggle("selected");
                 click.classList.toggle("selected");
@@ -103,6 +103,15 @@ window.addEventListener("DOMContentLoaded", function() {
         
         
         orderBtn.addEventListener("click" , function(event) {
+            //We want to add ingredients in the inputs and add them to the count
+            let inputs = document.querySelectorAll("body main aside input");
+            let nbIng;
+            
+            for (let input of inputs)
+            {
+                nbIng = parseInt(input.value);
+            }
+            
             let timeOut = setTimeout(function() {
                 img.style.display = "block";
                 
@@ -120,6 +129,9 @@ window.addEventListener("DOMContentLoaded", function() {
                     ingredient.classList.remove("selected");
                 }
             }, count * 1000);
+            
+            
+            
             
             let timeOut2 = setTimeout(function() {
                 img.style.display = "none";
