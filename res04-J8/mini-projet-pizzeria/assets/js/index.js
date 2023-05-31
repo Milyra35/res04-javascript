@@ -1,8 +1,11 @@
 import {Ingredient} from './classes/ingredient.js';
+import {Pizza} from './classes/pizza.js';
+
+let availableIngredients = [];
+let currentPizza = null;
+
 
 window.addEventListener("DOMContentLoaded", function() {
-    let availableIngredients = [];
-    
     let bacon = new Ingredient ("Bacon", "assets/img/bacon.png");
     let carotte = new Ingredient ("Carotte", "assets/img/carrots.png");
     let fromage = new Ingredient ("Fromage", "assets/img/cheese.png");
@@ -26,7 +29,8 @@ window.addEventListener("DOMContentLoaded", function() {
         let ul = document.createElement("ul");
         
         
-        for (let i=0; i<availableIngredients.length; i++) {
+        for (let i=0; i<availableIngredients.length; i++) 
+        {
             let li = document.createElement("li");
             let article = document.createElement("article");
             let header = document.createElement("header");
@@ -48,14 +52,38 @@ window.addEventListener("DOMContentLoaded", function() {
         //Select the ingredients and deselect them
         let ingredients = document.querySelectorAll("#stage ul li article");
         let header = document.querySelectorAll("#stage ul li article header");
-        
+            
         for (let i=0; i<ingredients.length; i++)
         {
             header[i].addEventListener("click", function(event) {
                 let click = event.target;
+                
+                let ingredientSelected = availableIngredients[i];
+                let indexIngredient = currentPizza.ingredients.indexOf(ingredientSelected);
+                //To test if an instance is already created
+                if (currentPizza === null)
+                {
+                    currentPizza = new Pizza();
+                    currentPizza.addIngredients(ingredientSelected);
+                }
+                else 
+                {
+                    if (currentPizza.ingredients.includes(ingredientSelected))
+                    {
+                        currentPizza.removeIngredient(ingredientSelected);
+                    }
+                    else 
+                    {
+                        currentPizza.addIngredients(ingredientSelected);
+                    }
+                }
+                
                 ingredients[i].classList.toggle("selected");
                 click.classList.toggle("selected");
-            })
+                
+                console.log(currentPizza);
+                currentPizza.display();
+            });
         }
     }
 
