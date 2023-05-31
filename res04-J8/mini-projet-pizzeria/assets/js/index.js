@@ -59,21 +59,24 @@ window.addEventListener("DOMContentLoaded", function() {
                 let click = event.target;
                 
                 let ingredientSelected = availableIngredients[i];
-                let indexIngredient = currentPizza.ingredients.indexOf(ingredientSelected);
+                // let indexIngredient = currentPizza.ingredients.indexOf(ingredientSelected);
                 //To test if an instance is already created
                 if (currentPizza === null)
                 {
                     currentPizza = new Pizza();
+                    currentPizza.display(ingredientSelected);
                     currentPizza.addIngredients(ingredientSelected);
                 }
                 else 
                 {
                     if (currentPizza.ingredients.includes(ingredientSelected))
                     {
+                        currentPizza.display(ingredientSelected);
                         currentPizza.removeIngredient(ingredientSelected);
                     }
                     else 
                     {
+                        currentPizza.display(ingredientSelected);
                         currentPizza.addIngredients(ingredientSelected);
                     }
                 }
@@ -82,7 +85,6 @@ window.addEventListener("DOMContentLoaded", function() {
                 click.classList.toggle("selected");
                 
                 console.log(currentPizza);
-                currentPizza.display();
             });
         }
     }

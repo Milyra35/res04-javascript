@@ -23,23 +23,28 @@ class Pizza {
         }
     }
     
-    display() {
+    display(ingredient) {
         // Retrieve the right area to put the ingredients in
         let aside = document.querySelector("body main aside");
         let ul = document.querySelector("body main aside ul");
         let lastLi = document.querySelector("body main aside li:last-of-type");
+        let li = document.createElement("li");
         
-        for (let i=0; i<this.#ingredients.length; i++) 
+        if (this.#ingredients.includes(ingredient))
         {
-            let li = document.createElement("li");
+            let allLi = document.querySelectorAll("aside ul li");
+            let index = this.#ingredients.indexOf((ingredient) + 1);
+        }
+        else
+        {
             let article = document.createElement("article");
             let header = document.createElement("header");
             let h3 = document.createElement("h3");
             let figure = document.createElement("figure");
             let img = document.createElement("img");
             
-            img.src = `${this.#ingredients[i].file}`;
-            h3.innerHTML = `${this.#ingredients[i].name}`;
+            img.src = `${ingredient.file}`;
+            h3.innerHTML = `${ingredient.name}`;
             figure.appendChild(img);
             header.appendChild(figure);
             header.appendChild(h3);
@@ -47,7 +52,6 @@ class Pizza {
             li.appendChild(article);
             ul.insertBefore(li, lastLi);
         }
-        
     }
 }
 
