@@ -3,6 +3,7 @@ import {Pizza} from './classes/pizza.js';
 
 let availableIngredients = [];
 let currentPizza = null;
+let count = 0;
 
 
 window.addEventListener("DOMContentLoaded", function() {
@@ -52,20 +53,25 @@ window.addEventListener("DOMContentLoaded", function() {
         //Select the ingredients and deselect them
         let ingredients = document.querySelectorAll("#stage ul li article");
         let header = document.querySelectorAll("#stage ul li article header");
+        
+        //We want to be able to add ingredients 
+        let input = document.querySelectorAll("main aside ul li figure input");
             
         for (let i=0; i<ingredients.length; i++)
         {
             header[i].addEventListener("click", function(event) {
                 let click = event.target;
-                
                 let ingredientSelected = availableIngredients[i];
                 // let indexIngredient = currentPizza.ingredients.indexOf(ingredientSelected);
+                
+                let nbIngredients = input[i].value;
                 //To test if an instance is already created
                 if (currentPizza === null)
                 {
                     currentPizza = new Pizza();
                     currentPizza.display(ingredientSelected);
-                    currentPizza.addIngredients(ingredientSelected);
+                    currentPizza.addIngredients(ingredientSelected + nbIngredients);
+                    count = count + 1;
                 }
                 else 
                 {
@@ -73,21 +79,54 @@ window.addEventListener("DOMContentLoaded", function() {
                     {
                         currentPizza.display(ingredientSelected);
                         currentPizza.removeIngredient(ingredientSelected);
+                        count = count - 1;
                     }
                     else 
                     {
                         currentPizza.display(ingredientSelected);
-                        currentPizza.addIngredients(ingredientSelected);
+                        currentPizza.addIngredients(ingredientSelected + nbIngredients);
+                        count = count + 1;
                     }
                 }
                 
                 ingredients[i].classList.toggle("selected");
                 click.classList.toggle("selected");
-                
                 console.log(currentPizza);
             });
         }
     }
-
+    
+    function cookPizza() {
+        let orderBtn = document.getElementById("order");
+        let img = document.querySelector("body main aside section");
+        img.style.display = "none";
+        
+        
+        orderBtn.addEventListener("click" , function(event) {
+            let timeOut = setTimeout(function() {
+                img.style.display = "block";
+                
+                // Get rid of anything inside the aside except for the button
+                let allLi = document.querySelectorAll("body main aside ul li:not(:last-of-type)");
+                for (let all of allLi)
+                {
+                    all.innerHTML = "";
+                }
+                
+                // Get rid of the selected ingredients
+                let ingredients = document.querySelectorAll("#stage ul li article");
+                for (let ingredient of ingredients)
+                {
+                    ingredient.classList.remove("selected");
+                }
+            }, count * 1000);
+            
+            let timeOut2 = setTimeout(function() {
+                img.style.display = "none";
+            }, (count*1000) + 5000);
+        });
+    }
+    
     choiceIngredients();
+    cookPizza();
 })

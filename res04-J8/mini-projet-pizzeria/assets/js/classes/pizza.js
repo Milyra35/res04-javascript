@@ -32,8 +32,9 @@ class Pizza {
         
         if (this.#ingredients.includes(ingredient))
         {
-            let allLi = document.querySelectorAll("aside ul li");
-            let index = this.#ingredients.indexOf((ingredient) + 1);
+            let index = this.#ingredients.indexOf(ingredient) + 1;
+            let removeLi = document.querySelector(`aside ul li:nth-of-type(${index})`);
+            removeLi.remove();
         }
         else
         {
@@ -42,10 +43,15 @@ class Pizza {
             let h3 = document.createElement("h3");
             let figure = document.createElement("figure");
             let img = document.createElement("img");
+            let input = document.createElement("input");
+            input.setAttribute("type", "number");
+            input.setAttribute("max", "3");
+            input.setAttribute("min", "1");
             
             img.src = `${ingredient.file}`;
             h3.innerHTML = `${ingredient.name}`;
             figure.appendChild(img);
+            figure.appendChild(input);
             header.appendChild(figure);
             header.appendChild(h3);
             article.appendChild(header);
